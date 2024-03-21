@@ -28,4 +28,14 @@ void print_node(stack *head);
 
 
 int sa(stack * stack_a);
+int sb(stack * stack_b);
+int ss(stack *stack_a, stack *stack_b);
+int pa(stack **stack_a, stack **stack_b);
+int pb(stack **stack_a, stack **stack_b);
+int ra(stack ** stack_a);
+int rb(stack ** stack_b);
+int rr(stack ** stack_a, stack **stack_b);
+int rra(stack **stack_a);
+int rrb(stack **stack_b);
+int rrr(stack **stack_a, stack **stack_b);
 #endif
