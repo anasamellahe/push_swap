@@ -1,9 +1,3 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <string.h>
 #include "push_swap.h"
 
 
@@ -59,7 +53,7 @@ int is_int(char *s)
             i++;
         }
     } 
-    return (0);
+    return (0); 
 }
 int is_dup(char **av, int ac)
 {
@@ -150,6 +144,7 @@ stack *new_node (int data)
     new = malloc(sizeof(stack));
     new->data = data;
     new->next = NULL;
+    return (new);
 }
 void l_add_node(stack **head, stack *node_to_add)
 {
@@ -191,9 +186,10 @@ int main(int ac, char  **av)
     }
     while (i < ac - 1)
     {
-        l_add_node(&stack_a, new_node(ft_atoi(av[i+1])));
+        f_add_node(&stack_a, new_node(ft_atoi(av[i+1])));
         i++;
     }
     print_node(stack_a);
-    
+    return (0);
+
 }
