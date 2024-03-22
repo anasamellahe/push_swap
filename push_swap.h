@@ -25,6 +25,8 @@ stack *new_node (int data);
 void l_add_node(stack **head, stack *node_to_add);
 void f_add_node(stack **head, stack * node_to_add);
 void print_node(stack *head);
+int link_len(stack *stack_t);
+void free_node(stack * stack_free);
 
 
 int sa(stack * stack_a);
@@ -38,4 +40,8 @@ int rr(stack ** stack_a, stack **stack_b);
 int rra(stack **stack_a);
 int rrb(stack **stack_b);
 int rrr(stack **stack_a, stack **stack_b);
+
+
+int check_ps(stack *stack_t, stack * node,int len); 
+stack *get_min(stack *stack_t);
 #endif

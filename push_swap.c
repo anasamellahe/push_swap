@@ -10,17 +10,7 @@ int ft_strlen(char *s)
         i++;
     return (i);
 }
-void free_node(stack * stack_free)
-{
-    stack *tmp;
-    while (stack_free->next != NULL)
-    {
-        tmp = stack_free;
-        stack_free = stack_free->next;
-        free(tmp);
-    }
-    free(stack_free);
-}
+
 int ft_strcmp(char *s, char *s1)
 {
     int i;
@@ -123,82 +113,19 @@ int check_error(char **av, int ac)
     return (is_dup(av, ac));
     
 }
-// int main (int ac, char *av[])
-// {
-    // int *tab;
-    // int i = 0;
 
-    // tab = (int *)malloc(sizeof(int) * (ac - 1));
-    // if (!tab)
-    // {
-    //     printf("malloc faile :(\n");
-    //     return (0);
-    // }
-    // while (i < ac - 1)
-    // {
-    //     tab[i] = ft_atoi(av[i + 1]);
-    //     i++;
-    // }
-    // if (check_error(av, ac) == -1)
-    //     printf("ERROR\n");
-    // else
-    //     printf("OK");
-    // return (0);
-
-//     stack *head;
-    
-// }
-stack *new_node (int data)
+void print_stack(stack *stack_a)
 {
-    stack *new;
+    printf("[A]\n");
 
-    new = malloc(sizeof(stack));
-    new->data = data;
-    new->next = NULL;
-    return (new);
-}
-void l_add_node(stack **head, stack *node_to_add)
-{
-    stack *tmp_head;
-
-    tmp_head = (*head);
-    if ((*head) != NULL)
+    while (stack_a != NULL)
     {
-        while ((*head)->next)
-            (*head) = (*head)->next;
-        (*head)->next = node_to_add;
-        (*head) = tmp_head;
-    }
-    else
-        (*head) = node_to_add;
-}
-
-void f_add_node(stack **head, stack * node_to_add)
-{   
-    node_to_add->next = (*head);
-    (*head) = node_to_add;
-}
-
-void print_stack(stack *stack_a, stack *stack_b)
-{
-    printf("[A] [B]\n");
-    printf("-------\n");
-
-    while (stack_a != NULL || stack_b != NULL)
-    {
-        printf("%d | %d\n", stack_a != NULL?stack_a->data:0, stack_b != NULL?stack_b->data:0);
-        if (stack_a!= NULL)
+        printf("%d\n",stack_a->data);
             stack_a = stack_a->next;
-        if (stack_b!= NULL)
-            stack_b = stack_b->next;
     }
 
 }
 
-// void print_node (stack * stack_a_b)
-// {
-//     while (stack)
-// }
 int main(int ac, char  **av)
 {
     int i = 0;
@@ -214,40 +141,58 @@ int main(int ac, char  **av)
         l_add_node(&stack_a, new_node(ft_atoi(av[i+1])));
         i++;
     }
-    l_add_node(&stack_b, new_node(-1));
-    l_add_node(&stack_b, new_node(-2));
-    l_add_node(&stack_b, new_node(-3));
-    l_add_node(&stack_b, new_node(-4));
+    print_stack(stack_a);
+    printf("--------\n");
+	stack * t = get_min(stack_a);
+	if (t == NULL)
+	{
+		printf("ERROR\n");
+		return (0);
+	}
+	printf("len ==  %d\n",  link_len(stack_a));
+	printf("min ==  %d\n", t->data);
+	printf ("ps == %d\n", check_ps(stack_a, t, link_len(stack_a)));
+	if (check_ps(stack_a, t, link_len(stack_a)) == -1 )
+		rra(&stack_a);
+	else
+		ra(&stack_a);
+	 print_stack(stack_a);
+	
+
+    // l_add_node(&stack_b, new_node(-1));
+    // l_add_node(&stack_b, new_node(-2));
+    // l_add_node(&stack_b, new_node(-3));
+    // l_add_node(&stack_b, new_node(-4));
 
 
 
 
-    print_stack(stack_a, stack_b);
+    // print_stack(stack_a, stack_b);
 
 
-    rr(&stack_a, &stack_b);
-    printf("----RR----\n");
-    print_stack(stack_a, stack_b);
+    // rr(&stack_a, &stack_b);
+    // printf("----RR----\n");
+    // print_stack(stack_a, stack_b);
 
-    rrr(&stack_a, &stack_b);
-    printf("----RRR----\n");
-    print_stack(stack_a, stack_b);
+    // rrr(&stack_a, &stack_b);
+    // printf("----RRR----\n");
+    // print_stack(stack_a, stack_b);
 
-    ss(stack_a, stack_b);
-    printf("----SS----\n");
-    print_stack(stack_a, stack_b);
+    // ss(stack_a, stack_b);
+    // printf("----SS----\n");
+    // print_stack(stack_a, stack_b);
 
-    ss(stack_a, stack_b);
-    printf("----SS----\n");
-    print_stack(stack_a, stack_b);
+    // ss(stack_a, stack_b);
+    // printf("----SS----\n");
+    // print_stack(stack_a, stack_b);
 
-    pa(&stack_a, &stack_b);
-    printf("----PA----\n");
-    print_stack(stack_a, stack_b);
+    // pa(&stack_a, &stack_b);
+    // printf("----PA----\n");
+    // print_stack(stack_a, stack_b);
 
-    pb(&stack_a, &stack_b);
-    printf("----PB----\n");
-    print_stack(stack_a, stack_b);
+    // pb(&stack_a, &stack_b);
+    // printf("----PB----\n");
+    // print_stack(stack_a, stack_b);
 
 
 
@@ -291,7 +236,7 @@ int main(int ac, char  **av)
 
     //----------------//
     free_node(stack_a);
-    free_node(stack_b);
+    //free_node(stack_b);
     return (0);
 
 }
