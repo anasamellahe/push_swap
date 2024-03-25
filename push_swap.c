@@ -125,12 +125,12 @@ void print_stack(stack *stack_a)
     }
 
 }
-
 int main(int ac, char  **av)
 {
     int i = 0;
     stack *stack_a = NULL;
     stack * stack_b = NULL;
+
     if (check_error(av, ac) == -1)
     {
         printf("ERROR\n");
@@ -141,29 +141,24 @@ int main(int ac, char  **av)
         l_add_node(&stack_a, new_node(ft_atoi(av[i+1])));
         i++;
     }
+
+    stack *stack_k;
+    stack_k = sort_k(dub(stack_a));
+    print_stack(stack_k);
+    printf ("//////////////////////\n");
     print_stack(stack_a);
-    printf("--------\n");
-	stack * t = get_min(stack_a);
-	if (t == NULL)
-	{
-		printf("ERROR\n");
-		return (0);
-	}
-	printf("len ==  %d\n",  link_len(stack_a));
-	printf("min ==  %d\n", t->data);
-	printf ("ps == %d\n", check_ps(stack_a, t, link_len(stack_a)));
-	if (check_ps(stack_a, t, link_len(stack_a)) == -1 )
-		rra(&stack_a);
-	else
-		ra(&stack_a);
-	 print_stack(stack_a);
+    printf("----call algo---------\n");
+    alogo_1(&stack_a, &stack_b);
+    printf("----print stack_a after algo---------\n");
+    print_stack(stack_a);
+    printf("----print stack_b after algo---------\n");
+    print_stack(stack_b);
+
+    
+	
 	
 
-    // l_add_node(&stack_b, new_node(-1));
-    // l_add_node(&stack_b, new_node(-2));
-    // l_add_node(&stack_b, new_node(-3));
-    // l_add_node(&stack_b, new_node(-4));
-
+   
 
 
 

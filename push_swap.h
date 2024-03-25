@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
+//#include "libft/libft.h"
 
 typedef struct node
 {
@@ -44,4 +45,23 @@ int rrr(stack **stack_a, stack **stack_b);
 
 int check_ps(stack *stack_t, stack * node,int len); 
 stack *get_min(stack *stack_t);
+
+
+void sort_b(stack **stack_a, stack **stack_b);
+int check_last(stack *head, stack *node);
+int check_top(stack *head, stack *node);
+stack *get_max(stack *stack_t);
+
+
+stack *dub(stack *stack_a);
+stack *sort_k(stack *stack_a);
+void alogo_1(stack **stack_a, stack **stack_b);
+void sort_algo_1(stack **stack_a, stack **stack_b, int val);
+int algo_1_sort_b(stack **stack_a, stack **stack_b, stack * min);
+int get_index_val(stack *stack_k, int index);
+int ps_key(float key);
+
+
+
+void print_stack(stack *stack_a);
 #endif
