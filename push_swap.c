@@ -116,7 +116,7 @@ int check_error(char **av, int ac)
 
 void print_stack(stack *stack_a)
 {
-    printf("[A]\n");
+    printf("<--print stack-->\n");
 
     while (stack_a != NULL)
     {
@@ -230,7 +230,7 @@ int main(int ac, char  **av)
 
 
     //----------------//
-    free_node(stack_a);
+    //free_node(stack_a);
     //free_node(stack_b);
     return (0);
 

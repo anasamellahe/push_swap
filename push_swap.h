@@ -64,4 +64,7 @@ int ps_key(float key);
 
 
 void print_stack(stack *stack_a);
+
+int algo_1_sort_a(stack **stack_a, stack **stack_b, stack * max);
+void sort_in_a(stack **stack_a, stack **stack_b);
 #endif

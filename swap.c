@@ -155,7 +155,6 @@ stack *sort_k(stack *stack_a)
     int   data;
 
     stack_k = dub(stack_a);
-    
     tmp = stack_k;
     data = 0;
     head = stack_k;
@@ -191,7 +190,7 @@ int get_index_val(stack *stack_k, int index)
     int i;
 
     i = 0;
-    while (stack_k != NULL && stack_k->next != NULL && i != index)
+    while (stack_k != NULL && stack_k->next != NULL  && i != index)
     {
         stack_k = stack_k->next;
         i++;
@@ -235,9 +234,13 @@ void sort_algo_1(stack **stack_a, stack **stack_b, int val)
             algo_1_sort_b(stack_a, stack_b, tmp);
             tmp = *stack_a;
         }
-        tmp = (stack *)(((size_t)(tmp->next)) * (tmp == tmp_add) + ((size_t)tmp * (tmp != tmp_add)));
+        if ( tmp != NULL && tmp == tmp_add)
+            tmp = tmp->next;
+        else
+            tmp =  tmp;
         tmp_add = tmp;
     }
+
 }
 void alogo_1(stack **stack_a, stack **stack_b)
 {
@@ -255,7 +258,18 @@ void alogo_1(stack **stack_a, stack **stack_b)
         sort_algo_1(stack_a, stack_b, get_index_val(stack_k, key));
         key += ps_key(len / 4);
     }
+    sort_in_a(stack_a, stack_b);
     
+}
+
+void sort_in_a(stack **stack_a, stack **stack_b)
+{
+    stack *test;
+    while(*stack_b != NULL)
+    {
+        test = get_max(*stack_b);
+        algo_1_sort_a(stack_a, stack_b, test);
+    }
 }
 int algo_1_sort_a(stack **stack_a, stack **stack_b, stack * max)
 {
@@ -263,16 +277,17 @@ int algo_1_sort_a(stack **stack_a, stack **stack_b, stack * max)
     int i;
 
     i = 0;
-    len = link_len(*stack_a);
-    while (check_top(*stack_a, max))
+    len = link_len(*stack_b);
+    while (check_top(*stack_b, max))
     {
-        if (check_ps(*stack_a, max, len) == 1)
-            rb(stack_a);
+        if (check_ps(*stack_b, max, len) == 1)
+            rb(stack_b);
         else
-            rrb(stack_a);
+            rrb(stack_b);
     }
-    if (check_top(*stack_a, max) == 0)
+    if (check_top(*stack_b, max) == 0)
     {
+        //printf("test %p\n", *stack_b);
         pa(stack_a, stack_b);
         return (1);
     }
