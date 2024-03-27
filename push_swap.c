@@ -142,19 +142,11 @@ int main(int ac, char  **av)
         i++;
     }
 
-    stack *stack_k;
-    stack_k = sort_k(dub(stack_a));
-    print_stack(stack_k);
-    printf ("//////////////////////\n");
-    print_stack(stack_a);
-    printf("----call algo---------\n");
-    alogo_1(&stack_a, &stack_b);
-    printf("----print stack_a after algo---------\n");
-    print_stack(stack_a);
-    printf("----print stack_b after algo---------\n");
-    print_stack(stack_b);
-
     
+    
+    
+    alogo_1(&stack_a, &stack_b, 5);
+    //print_stack(stack_a);
 	
 	
 

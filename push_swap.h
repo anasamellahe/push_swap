@@ -55,11 +55,12 @@ stack *get_max(stack *stack_t);
 
 stack *dub(stack *stack_a);
 stack *sort_k(stack *stack_a);
-void alogo_1(stack **stack_a, stack **stack_b);
+void alogo_1(stack **stack_a, stack **stack_b, int divi);
 void sort_algo_1(stack **stack_a, stack **stack_b, int val);
 int algo_1_sort_b(stack **stack_a, stack **stack_b, stack * min);
 int get_index_val(stack *stack_k, int index);
 int ps_key(float key);
+void sort_a(stack **stack_a, stack **stack_b);
 
 
 
