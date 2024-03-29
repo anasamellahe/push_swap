@@ -136,7 +136,8 @@ void sort_algo_1(stack **stack_a, stack **stack_b, int val)
 
 stack *get_best_move(stack *stack_a, stack *node, int val)
 {
-    
+    stack *stack_top = 
+    return ()
 }
 int get_best_move_from_top(stack *stack_a, int val)
 {
@@ -148,7 +149,7 @@ int get_best_move_from_top(stack *stack_a, int val)
         if (stack_a->data <= val)
             return (i);
         stack_a = stack_a->next;
-        i++
+        i++;
     }
     return (0);
 }
@@ -161,10 +162,10 @@ int get_best_move_from_last(stack *stack_a, int val)
     index = 0;
     i = link_len(stack_a);
     tmp = stack_a;
-    while (i >= 0)
+    while (i > 0)
     {
         index = 0;
-       while (index <= i && tmp != NULL)
+        while (index < i && tmp->next != NULL)
         {
             tmp = tmp->next;
             index++;
