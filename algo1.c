@@ -104,26 +104,42 @@ int algo_1_sort_a(stack **stack_a, stack **stack_b, stack * max)
     return (0);
 }
 
+// void sort_algo_1(stack **stack_a, stack **stack_b, int val)
+// {
+//     stack *tmp;
+//     stack *tmp_add;
+
+//     tmp = *stack_a;
+//     tmp_add = tmp;
+//     while (tmp != NULL)
+//     {
+//         if (tmp->data <= val)
+//         {
+//             algo_1_sort_b(stack_a, stack_b, tmp);
+//             tmp = *stack_a;
+//         }
+//         if ( tmp != NULL && tmp == tmp_add)
+//             tmp = tmp->next;
+//         else
+//             tmp =  tmp;
+//         tmp_add = tmp;
+//     }
+// }
 void sort_algo_1(stack **stack_a, stack **stack_b, int val)
 {
-    stack *tmp;
-    stack *tmp_add;
+    while (check_va(*stack_a, val))
+            algo_1_sort_b(stack_a, stack_b, get_best_move(*stack_a, val));
+}
 
-    tmp = *stack_a;
-    tmp_add = tmp;
-    while (tmp != NULL)
+int check_va(stack * stack_a, int val)
+{
+    while (stack_a != NULL)
     {
-        if (tmp->data <= val)
-        {
-            algo_1_sort_b(stack_a, stack_b, tmp);
-            tmp = *stack_a;
-        }
-        if ( tmp != NULL && tmp == tmp_add)
-            tmp = tmp->next;
-        else
-            tmp =  tmp;
-        tmp_add = tmp;
+        if (stack_a->data <= val)
+            return (1);
+        stack_a = stack_a->next;
     }
+    return (0);
 }
 
 
@@ -134,10 +150,31 @@ void sort_algo_1(stack **stack_a, stack **stack_b, int val)
 /*_______________________________________________________*/
 
 
-stack *get_best_move(stack *stack_a, stack *node, int val)
+stack *get_best_move(stack *stack_a, int val)
 {
-    stack *stack_top = 
-    return ()
+    int top;
+    int last;
+    int len;
+
+    len = link_len(stack_a);
+    top = get_best_move_from_top(stack_a, val);
+    last = get_best_move_from_last(stack_a, val);
+    if (top < (len - last))
+        return (get_index_node(stack_a, top));
+    else
+        return (get_index_node(stack_a, last));
+}
+stack *get_index_node(stack *stack_a, int index)
+{
+    int i;
+
+    i = 0;
+    while (stack_a != NULL && stack_a->next != NULL  && i != index)
+    {
+        stack_a = stack_a->next;
+        i++;
+    }
+    return (stack_a);
 }
 int get_best_move_from_top(stack *stack_a, int val)
 {
