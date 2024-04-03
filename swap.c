@@ -57,6 +57,9 @@ stack *get_max(stack *stack_t)
     }
     return (i);
 }
+// add check for swap 
+// return val == 0
+
 int check_ps(stack *stack_t, stack * node,int len)
 {
 	int i;
@@ -67,8 +70,10 @@ int check_ps(stack *stack_t, stack * node,int len)
 		stack_t = stack_t->next;
 		i++;
 	}
-	if (i < (len / 2))
+	if (i < (len / 2) && i != 1)
 		return (1);
+    else if (i < (len / 2) && i == 1)
+        return (0);
 	else
 		return (-1);
 }

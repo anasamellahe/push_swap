@@ -11,6 +11,8 @@ int algo_1_sort_b(stack **stack_a, stack **stack_b, stack * min)
     {
         if (check_ps(*stack_a, min, len) == 1)
             ra(stack_a);
+        else if (check_ps(*stack_a, min, len) == 0)
+            sa(*stack_a);
         else
             rra(stack_a);
     }
@@ -93,6 +95,8 @@ int algo_1_sort_a(stack **stack_a, stack **stack_b, stack * max)
     {
         if (check_ps(*stack_b, max, len) == 1)
             rb(stack_b);
+        else if (check_ps(*stack_b, max, len) == 0)
+            sb(*stack_b);
         else
             rrb(stack_b);
     }
@@ -155,11 +159,18 @@ stack *get_best_move(stack *stack_a, int val)
     int top;
     int last;
     int len;
-
+   // printf("val == %d\n", val);
     len = link_len(stack_a);
+    ("len == %d\n", len);
     top = get_best_move_from_top(stack_a, val);
+   // printf("top == %d\n",top);
     last = get_best_move_from_last(stack_a, val);
-    if (top < (len - last))
+    stack *last_node = get_index_node(stack_a, last);
+    stack *top_node = get_index_node(stack_a, top);
+    //printf("last == %d\n",last);
+    //printf("top index val == %d\n", b->data);
+    //printf("last  index val == %d\n", a->data);
+    if (top <= (len - last) || last_node->data > top_node->data)
         return (get_index_node(stack_a, top));
     else
         return (get_index_node(stack_a, last));

@@ -47,6 +47,7 @@ int check_ps(stack *stack_t, stack * node,int len);
 stack *get_min(stack *stack_t);
 
 
+
 void sort_b(stack **stack_a, stack **stack_b);
 int check_last(stack *head, stack *node);
 int check_top(stack *head, stack *node);
@@ -68,4 +69,13 @@ void print_stack(stack *stack_a);
 
 int algo_1_sort_a(stack **stack_a, stack **stack_b, stack * max);
 void sort_in_a(stack **stack_a, stack **stack_b);
+
+
+void sort_algo_1(stack **stack_a, stack **stack_b, int val);
+int check_va(stack * stack_a, int val);
+stack *get_best_move(stack *stack_a, int val);
+stack *get_index_node(stack *stack_a, int index);
+int get_best_move_from_top(stack *stack_a, int val);
+int get_best_move_from_last(stack *stack_a, int val);
+
 #endif
