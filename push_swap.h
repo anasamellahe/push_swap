@@ -30,8 +30,8 @@ int link_len(stack *stack_t);
 void free_node(stack * stack_free);
 
 
-int sa(stack * stack_a);
-int sb(stack * stack_b);
+int sa(stack ** stack_a);
+int sb(stack ** stack_b);
 int ss(stack *stack_a, stack *stack_b);
 int pa(stack **stack_a, stack **stack_b);
 int pb(stack **stack_a, stack **stack_b);

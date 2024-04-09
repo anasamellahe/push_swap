@@ -65,6 +65,8 @@ int check_ps(stack *stack_t, stack * node,int len)
 	int i;
 
 	i = 0;
+    stack *tmp;
+    tmp = stack_t;
 	while (node != NULL && stack_t != NULL && stack_t->data != node->data)
 	{
 		stack_t = stack_t->next;
@@ -73,13 +75,14 @@ int check_ps(stack *stack_t, stack * node,int len)
 	if (i < (len / 2) && i != 1)
 		return (1);
     else if (i < (len / 2) && i == 1)
-        return (0);
+        return (2);
 	else
 		return (-1);
+    return (0);
 }
 int check_top(stack *head, stack *node)
 {
-    if (head == node)
+    if (head == node || head->data == node->data)
         return (0);
     else
         return (1);

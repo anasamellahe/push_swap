@@ -145,7 +145,7 @@ int main(int ac, char  **av)
     
     
     
-    alogo_1(&stack_a, &stack_b, 5);
+    alogo_1(&stack_a, &stack_b, 8);
     //print_stack(stack_a);
 	
 	
