@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
 
-stack *get_min(stack *stack_t)
+t_stack *get_min(t_stack *stack_t)
 {
-    stack *i;
-    stack *tmp_stack;
+    t_stack *i;
+    t_stack *tmp_stack;
 
     i = stack_t;
     tmp_stack = stack_t;
@@ -29,10 +29,11 @@ stack *get_min(stack *stack_t)
     }
     return (i);
 }
-stack *get_max(stack *stack_t)
+// va //
+t_stack *get_max(t_stack *stack_t)
 {
-    stack *i;
-    stack *tmp_stack;
+    t_stack *i;
+    t_stack *tmp_stack;
 
     i = stack_t;
     tmp_stack = stack_t;
@@ -60,12 +61,13 @@ stack *get_max(stack *stack_t)
 // add check for swap 
 // return val == 0
 
-int check_ps(stack *stack_t, stack * node,int len)
+// va //
+int check_ps(t_stack *stack_t, t_stack * node,int len)
 {
 	int i;
 
 	i = 0;
-    stack *tmp;
+    t_stack *tmp;
     tmp = stack_t;
 	while (node != NULL && stack_t != NULL && stack_t->data != node->data)
 	{
@@ -80,14 +82,14 @@ int check_ps(stack *stack_t, stack * node,int len)
 		return (-1);
     return (0);
 }
-int check_top(stack *head, stack *node)
+int check_top(t_stack *head, t_stack *node)
 {
     if (head == node || head->data == node->data)
         return (0);
     else
         return (1);
 }
-int check_last(stack *head, stack *node)
+int check_last(t_stack *head, t_stack *node)
 {
     while (head != NULL && head->next != NULL)
         head = head->next;
@@ -98,9 +100,9 @@ int check_last(stack *head, stack *node)
 }
 
 
-stack *dub(stack *stack_a)
+t_stack *dub(t_stack *stack_a)
 {
-    stack *stack_k;
+    t_stack *stack_k;
 
     stack_k = NULL;
     while (stack_a != NULL)
@@ -110,11 +112,12 @@ stack *dub(stack *stack_a)
     }
     return (stack_k);   
 }
-stack *sort_k(stack *stack_a)
+// va //
+t_stack *sort_k(t_stack *stack_a)
 {
-    stack *stack_k;
-    stack *head;
-    stack *tmp;
+    t_stack *stack_k;
+    t_stack *head;
+    t_stack *tmp;
     int   data;
 
     stack_k = dub(stack_a);
@@ -148,7 +151,8 @@ int ps_key(float key)
     else
         return (key);   
 }
-int get_index_val(stack *stack_k, int index)
+// va //
+int get_index_val(t_stack *stack_k, int index)
 {
     int i;
 

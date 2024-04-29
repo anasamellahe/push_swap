@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-int sa(stack ** stack_a)
+int sa(t_stack ** stack_a)
 {
-	stack *tmp;
+	t_stack *tmp;
 
 	if (stack_a == NULL || (*stack_a)->next == NULL)
 		return (0);
@@ -14,9 +14,9 @@ int sa(stack ** stack_a)
 	printf("sa\n");
 	return (0);
 }
-int sb(stack ** stack_b)
+int sb(t_stack ** stack_b)
 {
-	stack *tmp;
+	t_stack *tmp;
 
 	if (stack_b == NULL || (*stack_b)->next == NULL)
 		return (0);
@@ -28,16 +28,16 @@ int sb(stack ** stack_b)
 	printf("sb\n");
 	return (0);
 }
-int ss(stack * stack_a, stack * stack_b)
+int ss(t_stack * stack_a, t_stack * stack_b)
 {
 	sa(&stack_a);
 	sb(&stack_b);
 	printf("ss\n");
 	return (0);
 }
-int pa(stack **stack_a, stack **stack_b)
+int pa(t_stack **stack_a, t_stack **stack_b)
 {
-	stack *tmp_stack_b;
+	t_stack *tmp_stack_b;
 
 	if (stack_b == NULL)
 		return (0);
@@ -47,9 +47,9 @@ int pa(stack **stack_a, stack **stack_b)
 	printf("pa\n");
 	return (0);
 }
-int pb(stack **stack_a, stack **stack_b)
+int pb(t_stack **stack_a, t_stack **stack_b)
 {
-	stack *tmp_stack_a;
+	t_stack *tmp_stack_a;
 
 	if (stack_a == NULL)
 		return (0);
@@ -59,9 +59,9 @@ int pb(stack **stack_a, stack **stack_b)
 	printf("pb\n");
 	return (0);
 }
-int ra(stack ** stack_a)
+int ra(t_stack ** stack_a)
 {
-	stack *tmp_stack_a;
+	t_stack *tmp_stack_a;
 
 	if ((*stack_a) == NULL || (*stack_a)->next == NULL)
 		return (0);
@@ -72,9 +72,9 @@ int ra(stack ** stack_a)
 	printf("ra\n");
 	return (0);
 }
-int rb(stack ** stack_b)
+int rb(t_stack ** stack_b)
 {
-	stack *tmp_stack_b;
+	t_stack *tmp_stack_b;
 	
 	if ((*stack_b) == NULL || (*stack_b)->next == NULL)
 		return (0);
@@ -85,17 +85,17 @@ int rb(stack ** stack_b)
 	printf("rb\n");
 	return (0);
 }
-int rr(stack **stack_a, stack **stack_b)
+int rr(t_stack **stack_a, t_stack **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
 	printf("rr\n");
 	return (0);
 }
-int rra(stack **stack_a)
+int rra(t_stack **stack_a)
 {
-	stack *tmp_stack_a;
-	stack *tmp;
+	t_stack *tmp_stack_a;
+	t_stack *tmp;
 
 	tmp_stack_a = (*stack_a);
 	while (tmp_stack_a->next->next != NULL)
@@ -107,10 +107,10 @@ int rra(stack **stack_a)
 	printf("rra\n");
 	return (0);
 }
-int rrb(stack **stack_b)
+int rrb(t_stack **stack_b)
 {
-	stack *tmp_stack_b;
-	stack *tmp;
+	t_stack *tmp_stack_b;
+	t_stack *tmp;
 
 	tmp_stack_b = (*stack_b);
 	while (tmp_stack_b->next->next != NULL)
@@ -122,7 +122,7 @@ int rrb(stack **stack_b)
 	printf("rrb\n");
 	return (0);
 }
-int rrr(stack **stack_a, stack **stack_b)
+int rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	rra(stack_a);
 	rrb(stack_b);

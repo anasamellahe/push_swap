@@ -1,18 +1,18 @@
 #include "push_swap.h"
 
-stack *new_node (int data)
+t_stack *new_node (int data)
 {
-    stack *new;
+    t_stack *new;
 
-    new = malloc(sizeof(stack));
+    new = malloc(sizeof(t_stack));
     new->data = data;
     new->next = NULL;
     return (new);
 }
 
-void l_add_node(stack **head, stack *node_to_add)
+void l_add_node(t_stack **head, t_stack *node_to_add)
 {
-    stack *tmp_head;
+    t_stack *tmp_head;
 
     tmp_head = (*head);
     if ((*head) != NULL)
@@ -25,7 +25,7 @@ void l_add_node(stack **head, stack *node_to_add)
     else
         (*head) = node_to_add;
 }
-int link_len(stack *stack_t)
+int link_len(t_stack *stack_t)
 {
     int i;
 
@@ -38,15 +38,15 @@ int link_len(stack *stack_t)
     return (i);
 }
 
-void f_add_node(stack **head, stack * node_to_add)
+void f_add_node(t_stack **head, t_stack * node_to_add)
 {   
     node_to_add->next = (*head);
     (*head) = node_to_add;
 }
 
-void free_node(stack * stack_free)
+void free_node(t_stack * stack_free)
 {
-    stack *tmp;
+    t_stack *tmp;
     while (stack_free->next != NULL)
     {
         tmp = stack_free;

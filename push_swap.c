@@ -114,7 +114,7 @@ int check_error(char **av, int ac)
     
 }
 
-void print_stack(stack *stack_a)
+void print_stack(t_stack *stack_a)
 {
     printf("<--print stack-->\n");
 
@@ -128,8 +128,8 @@ void print_stack(stack *stack_a)
 int main(int ac, char  **av)
 {
     int i = 0;
-    stack *stack_a = NULL;
-    stack * stack_b = NULL;
+    t_stack *stack_a = NULL;
+    t_stack * stack_b = NULL;
 
     if (check_error(av, ac) == -1)
     {
@@ -142,10 +142,8 @@ int main(int ac, char  **av)
         i++;
     }
 
-    
-    
-    
-    alogo_1(&stack_a, &stack_b, 8);
+ 
+    algo(&stack_a, &stack_b);
     //print_stack(stack_a);
 	
 	
