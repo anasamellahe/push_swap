@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 
-int ft_strlen(char *s)
+int ft_strlen(const char *s)
 {
     int i;
 
@@ -98,20 +98,24 @@ int ft_atoi(char *s)
 
 }
 
-int check_error(char **av, int ac)
+char **new_str(char **av)
 {
     int i;
+    char *new;
+    char **new_sp;
 
-    i = 0;
-    if (ac)
-    while (i < ac - 1)
+    i = 1;
+    new = 0;
+    while (av[i] != NULL)
     {
-        if (is_int(av[i + 1]) || is_number(av[i + 1]))
-            return (-1);
+        new = ft_strjoin(new, av[i]);
+        if (av[i + 1] != NULL)
+            new = ft_strjoin(new, " ");
         i++;
     }
-    return (is_dup(av, ac));
-    
+    new_sp = ft_split(new, ' ');
+    free(new);
+    return (new_sp);
 }
 
 void print_stack(t_stack *stack_a)
@@ -125,103 +129,27 @@ void print_stack(t_stack *stack_a)
     }
 
 }
+
 int main(int ac, char  **av)
 {
-    int i = 0;
+    char    **str;
     t_stack *stack_a = NULL;
     t_stack * stack_b = NULL;
 
-    if (check_error(av, ac) == -1)
+    str =  new_str(av);
+    if (check_error == -1)
     {
-        printf("ERROR\n");
-        return(0);
+        write(2, "Error\n", 6);
+        return (0);
     }
-    while (i < ac - 1)
-    {
-        l_add_node(&stack_a, new_node(ft_atoi(av[i+1])));
-        i++;
-    }
+    // while (i < ac - 1)
+    // {
+    //     l_add_node(&stack_a, new_node(ft_atoi(av[i+1])));
+    //     i++;
+    // }
 
  
-    algo(&stack_a, &stack_b);
-    //print_stack(stack_a);
-	
-	
-
-   
-
-
-
-    // print_stack(stack_a, stack_b);
-
-
-    // rr(&stack_a, &stack_b);
-    // printf("----RR----\n");
-    // print_stack(stack_a, stack_b);
-
-    // rrr(&stack_a, &stack_b);
-    // printf("----RRR----\n");
-    // print_stack(stack_a, stack_b);
-
-    // ss(stack_a, stack_b);
-    // printf("----SS----\n");
-    // print_stack(stack_a, stack_b);
-
-    // ss(stack_a, stack_b);
-    // printf("----SS----\n");
-    // print_stack(stack_a, stack_b);
-
-    // pa(&stack_a, &stack_b);
-    // printf("----PA----\n");
-    // print_stack(stack_a, stack_b);
-
-    // pb(&stack_a, &stack_b);
-    // printf("----PB----\n");
-    // print_stack(stack_a, stack_b);
-
-
-
-
-    // printf("|----A----|\n");
-    // print_node(stack_a);
-    // printf("|----B----|\n");
-    // print_node(stack_b);
-    // rra(&stack_a);
-    // printf("----RRA----\n");
-    // printf("|----A----|\n");
-    // print_node(stack_a);
-    // ra(&stack_a);
-    // printf("----RRA----\n");
-    // printf("|----A----|\n");
-    // print_node(stack_a);
-    // rb(&stack_b);
-    // printf("----Rb----\n");
-    // printf("|----b----|\n");
-    // print_node(stack_b);
-    
-
-    
-    // pa(&stack_a, &stack_b);
-    // printf("----PA----\n");
-
-    // printf("|----A----|\n");
-    // print_node(stack_a);
-    // printf("|----B----|\n");
-    // print_node(stack_b);
-
-    // pb(&stack_a, &stack_b);
-    // pb(&stack_a, &stack_b);
-    // printf("----PB----\n");
-
-    // printf("|----A----|\n");
-    // print_node(stack_a);
-    // printf("|----B----|\n");
-    // print_node(stack_b);
-
-
-    //----------------//
-    //free_node(stack_a);
-    //free_node(stack_b);
+    //algo(&stack_a, &stack_b);
     return (0);
 
 }

@@ -6,11 +6,11 @@
 /*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 02:47:31 by anamella          #+#    #+#             */
-/*   Updated: 2023/11/14 23:21:57 by anamella         ###   ########.fr       */
+/*   Updated: 2024/04/30 18:06:40 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static char	**ft_count(char const *s, char c)
 {
