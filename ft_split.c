@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 02:47:31 by anamella          #+#    #+#             */
-/*   Updated: 2024/04/30 18:06:40 by anamella         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 static char	**ft_count(char const *s, char c)
@@ -51,20 +39,6 @@ static char	*ft_strndup(char const *s, size_t n)
 	}
 	ptr[i] = '\0';
 	return (ptr);
-}
-
-static char	**ft_free(char **ptr)
-{
-	int	i;
-
-	i = 0;
-	while (ptr[i])
-	{
-		free(ptr[i]);
-		i++;
-	}
-	free(ptr);
-	return (NULL);
 }
 
 static char	**ft_count2(char const *s, char c, char **ptr)

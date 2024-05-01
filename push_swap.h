@@ -21,9 +21,9 @@ int ft_strlen(const char *s);
 int ft_strcmp(char *s, char *s1);
 int is_number(char *s);
 int is_int(char *s);
-int is_dup(char **av, int ac);
-int ft_atoi(char *s);
-char **check_error(char **av, int ac);
+int is_dup(char **av);
+int ft_atoi(const char *s);
+int check_error(char **str);
 t_stack *new_node (int data);
 void l_add_node(t_stack **head, t_stack *node_to_add);
 void f_add_node(t_stack **head, t_stack * node_to_add);
@@ -58,4 +58,11 @@ void print_stack(t_stack *stack_a);
 void algo(t_stack **stack_a, t_stack **stack_b);
 void sort_to_a(t_stack **stack_a, t_stack **stack_b);
 char	**ft_split(char const *s, char c);
+char	**ft_free(char **ptr);
+
+void sort_3num(t_stack **stack_a, t_stack **stack_b);
+void sort_xnum(t_stack **stack_a, t_stack **stack_b);
+int get_index(t_stack *stack, t_stack *node);
+t_stack *get_min(t_stack *stack_t);
+void get_algo(t_stack **stack_a, t_stack **stack_b);
 #endif

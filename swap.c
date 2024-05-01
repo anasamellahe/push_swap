@@ -69,35 +69,6 @@ t_stack *dub(t_stack *stack_a)
     return (stack_k);   
 }
 
-t_stack *sort_k(t_stack *stack_a)
-{
-    t_stack *stack_k;
-    t_stack *head;
-    t_stack *tmp;
-    int   data;
-
-    stack_k = dub(stack_a);
-    tmp = stack_k;
-    data = 0;
-    head = stack_k;
-    while (stack_k && stack_k->next != NULL)
-    {
-        tmp = stack_k->next;
-        while (tmp != NULL)
-        {
-            if (stack_k->data > tmp->data)
-            {
-                data = stack_k->data;
-                stack_k->data = tmp->data;
-                tmp->data = data;
-            }
-            tmp = tmp->next;
-        }
-        stack_k = stack_k->next;
-    }
-    return (head);
-}
-
 int get_index_val(t_stack *stack_k, int index)
 {
     int i;
