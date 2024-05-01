@@ -55,14 +55,16 @@ int get_index_val(t_stack *stack_k, int index);
 
 void print_stack(t_stack *stack_a);
 
-void algo(t_stack **stack_a, t_stack **stack_b);
+void algo(t_stack **stack_a, t_stack **stack_b, int start, int end);
 void sort_to_a(t_stack **stack_a, t_stack **stack_b);
 char	**ft_split(char const *s, char c);
 char	**ft_free(char **ptr);
 
-void sort_3num(t_stack **stack_a, t_stack **stack_b);
-void sort_xnum(t_stack **stack_a, t_stack **stack_b);
+void    sort_2num(t_stack **stack_a, t_stack **stack_b);
+void    sort_3num(t_stack **stack_a, t_stack **stack_b);
+void    sort_xnum(t_stack **stack_a, t_stack **stack_b);
 int get_index(t_stack *stack, t_stack *node);
 t_stack *get_min(t_stack *stack_t);
 void get_algo(t_stack **stack_a, t_stack **stack_b);
+int is_sorted(t_stack *stack_a);
 #endif
