@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "checker.h"
 
 static char	**ft_count(char const *s, char c)
 {

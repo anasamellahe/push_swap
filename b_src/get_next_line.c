@@ -6,7 +6,7 @@
 /*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 22:04:05 by anamella          #+#    #+#             */
-/*   Updated: 2023/12/31 17:49:17 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/01 22:10:00 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,4 @@ char	*get_next_line(int fd)
 	line = ft_get_line(s);
 	s = ft_new_str(s);
 	return (line);
-}
-int main ()
-{
-	char *s = get_next_line(0);
-	while (s)
-	{
-		printf("%s", s);
-		s = get_next_line(0);
-	}
 }

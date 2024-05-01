@@ -20,6 +20,35 @@ char	**new_str(char **av)
 	return (new_sp);
 }
 
+int set_stack(t_stack **stack_a, t_stack **stack_b, char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		l_add_node(stack_a, new_node(ft_atoi(str[i++])));
+	ft_free(str);
+	if (!is_sorted(*stack_a))
+		if (get_moves(stack_a, stack_b))
+		{
+			write(1, "Error\n", 6);
+			if (*stack_a)
+				free_node(*stack_a);
+			if (*stack_b)
+				free_node(*stack_b);
+			return (0);
+		}
+	if (is_sorted(*stack_a))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	if (*stack_a)
+		free_node(*stack_a);
+	if (*stack_b)
+		free_node(*stack_b);
+	return (0);
+}
+
 int	check_error(char **str)
 {
 	int	i;
@@ -72,7 +101,6 @@ char	**ft_free(char **ptr)
 int main(int ac, char *av[])
 {
 	char	**str;
-	int		i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	
@@ -86,10 +114,6 @@ int main(int ac, char *av[])
 		ft_free(str);
 		return (0);
 	}
-	i = 0;
-	while (str[i])
-		l_add_node(&stack_a, new_node(ft_atoi(str[i++])));
-	ft_free(str);
-	if (!is_sorted(stack_a))
-		get_moves(&stack_a, &stack_b);
+	set_stack(&stack_a, &stack_b, str);
 }
+

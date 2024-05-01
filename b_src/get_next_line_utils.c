@@ -6,13 +6,13 @@
 /*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 22:05:29 by anamella          #+#    #+#             */
-/*   Updated: 2023/12/29 22:10:55 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/01 22:20:25 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *s)
+int	ft_strlen(const char *s)
 {
 	int	i;
 
@@ -36,16 +36,22 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*ptr;
-	int		len;
-	int		len1;
+	size_t	len;
+	size_t	len1;
 
 	if (!s1 && !s2)
 		return (NULL);
-	len = ft_strlen(s1);
-	len1 = ft_strlen(s2);
+	if (s1)
+		len = ft_strlen(s1);
+	else
+		len = 0;
+	if (s2)
+		len1 = ft_strlen(s2);
+	else
+		len1 = 0;
 	ptr = malloc(len + len1 + 1);
 	if (!ptr)
 		return (NULL);
@@ -54,19 +60,23 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (s2)
 		ft_memcpy((ptr + len), s2, len1);
 	ptr[len + len1] = '\0';
-	free(s1);
+	if (s1)
+		free((char *)s1);
 	return (ptr);
 }
 
-void	*ft_memcpy(void *dst, void *src, int n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	void	*t;
 
-	i = 0;
-	while (i < n)
+	t = dst;
+	if (dst == src)
+		return (t);
+	while (n)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
+		*((unsigned char *)dst++) = *((unsigned char *)src++);
+		n--;
 	}
-	return (dst);
+	return (t);
 }
+

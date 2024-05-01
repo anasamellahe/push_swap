@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "checker.h"
 
 int	sa(t_stack **stack_a)
 {
@@ -10,7 +10,6 @@ int	sa(t_stack **stack_a)
 	*stack_a = (*stack_a)->next;
 	tmp->next = (*stack_a)->next;
 	(*stack_a)->next = tmp;
-	write(1, "sa\n", 3);
 	return (0);
 }
 
@@ -24,7 +23,6 @@ int	sb(t_stack **stack_b)
 	*stack_b = (*stack_b)->next;
 	tmp->next = (*stack_b)->next;
 	(*stack_b)->next = tmp;
-	write(1, "sb\n", 3);
 	return (0);
 }
 
@@ -32,7 +30,6 @@ int	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	sa(&stack_a);
 	sb(&stack_b);
-	write(1, "ss\n", 3);
 	return (0);
 }
 

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "checker.h"
 
 int	ft_atoi(const char *str)
 {
