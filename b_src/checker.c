@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/01 23:03:16 by anamella          #+#    #+#             */
+/*   Updated: 2024/05/01 23:37:07 by anamella         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
 char	**new_str(char **av)
@@ -20,7 +32,7 @@ char	**new_str(char **av)
 	return (new_sp);
 }
 
-int set_stack(t_stack **stack_a, t_stack **stack_b, char **str)
+int	set_stack(t_stack **stack_a, t_stack **stack_b, char **str)
 {
 	int	i;
 
@@ -28,24 +40,15 @@ int set_stack(t_stack **stack_a, t_stack **stack_b, char **str)
 	while (str[i])
 		l_add_node(stack_a, new_node(ft_atoi(str[i++])));
 	ft_free(str);
-	if (!is_sorted(*stack_a))
-		if (get_moves(stack_a, stack_b))
-		{
-			write(1, "Error\n", 6);
-			if (*stack_a)
-				free_node(*stack_a);
-			if (*stack_b)
-				free_node(*stack_b);
-			return (0);
-		}
-	if (is_sorted(*stack_a))
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
-	if (*stack_a)
-		free_node(*stack_a);
-	if (*stack_b)
-		free_node(*stack_b);
+	if (get_moves(stack_a, stack_b))
+	{
+		write(1, "Error\n", 6);
+		if (*stack_a)
+			free_node(*stack_a);
+		if (*stack_b)
+			free_node(*stack_b);
+		return (1);
+	}
 	return (0);
 }
 
@@ -65,7 +68,7 @@ int	check_error(char **str)
 	return (0);
 }
 
-int	is_sorted(t_stack *stack_a)
+int	is_sorted(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*i;
 	t_stack	*j;
@@ -82,31 +85,19 @@ int	is_sorted(t_stack *stack_a)
 		}
 		i = i->next;
 	}
-	return (1);
+	return (1 * (stack_b == NULL));
 }
 
-char	**ft_free(char **ptr)
-{
-	int	i;
-
-	i = 0;
-	while (ptr[i])
-	{
-		free(ptr[i]);
-		i++;
-	}
-	free(ptr);
-	return (NULL);
-}
-int main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
 	char	**str;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	
-	(void)ac;
+
 	stack_a = NULL;
 	stack_b = NULL;
+	if (ac  < 2)
+		return (0);
 	str = new_str(av);
 	if (check_error(str) == -1)
 	{
@@ -114,6 +105,15 @@ int main(int ac, char *av[])
 		ft_free(str);
 		return (0);
 	}
-	set_stack(&stack_a, &stack_b, str);
+	if (set_stack(&stack_a, &stack_b, str))
+		return (0);
+	if (is_sorted(stack_a, stack_b))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	if (stack_a)
+		free_node(stack_a);
+	if (stack_b)
+		free_node(stack_b);
+	return (0);
 }
-

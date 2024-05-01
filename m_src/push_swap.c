@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/01 23:02:03 by anamella          #+#    #+#             */
+/*   Updated: 2024/05/01 23:29:43 by anamella         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 char	**new_str(char **av)
@@ -36,7 +48,7 @@ int	check_error(char **str)
 	return (0);
 }
 
-int	is_sorted(t_stack *stack_a)
+int	is_sorted(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*i;
 	t_stack	*j;
@@ -53,7 +65,7 @@ int	is_sorted(t_stack *stack_a)
 		}
 		i = i->next;
 	}
-	return (1);
+	return (1 * (stack_b == NULL));
 }
 
 char	**ft_free(char **ptr)
@@ -76,7 +88,7 @@ int	main(int ac, char **av)
 	int		i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	
+
 	(void)ac;
 	stack_a = NULL;
 	stack_b = NULL;
@@ -90,7 +102,7 @@ int	main(int ac, char **av)
 	i = 0;
 	while (str[i])
 		l_add_node(&stack_a, new_node(ft_atoi(str[i++])));
-	if (!is_sorted(stack_a))
+	if (!is_sorted(stack_a, stack_b))
 		get_algo(&stack_a, &stack_b);
 	ft_free(str);
 	free_node(stack_a);

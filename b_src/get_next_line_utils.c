@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 22:05:29 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 22:20:25 by anamella         ###   ########.fr       */
+/*   Created: 2024/05/01 23:11:22 by anamella          #+#    #+#             */
+/*   Updated: 2024/05/01 23:14:27 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (t);
 }
-
