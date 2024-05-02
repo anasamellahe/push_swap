@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:02:16 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:02:17 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:59:29 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	ft_strcmp(char *s, char *s1)
 
 	i = 0;
 	while (s && s1 && s[i] == s1[i] && s[i] && s1[i])
+	{
+		printf("%c %c\n", s[i], s1[i]);
 		i++;
+	}
 	return (s[i] - s1[i]);
 }
 
@@ -37,7 +40,9 @@ int	is_number(char *s)
 	int	i;
 
 	i = 0;
-	i += s[i] == '-';
+	i += (s[i] == '-' || s[i] == '+');
+	if (s[i] == 0)
+		return (-1);
 	while (s[i])
 	{
 		if (!(s[i] >= '0' && s[i] <= '9'))

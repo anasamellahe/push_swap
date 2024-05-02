@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:02:06 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:29:14 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:43:31 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	sort_2num(t_stack **stack_a, t_stack **stack_b);
 void	sort_3num(t_stack **stack_a, t_stack **stack_b);
 void	sort_xnum(t_stack **stack_a, t_stack **stack_b);
 void	algo(t_stack **stack_a, t_stack **stack_b, int start, int end);
+void	set_stack(t_stack **stack_a, t_stack **stack_b, char **str);
 void	sort_to_a(t_stack **stack_a, t_stack **stack_b);
 void	get_algo(t_stack **stack_a, t_stack **stack_b);
 
@@ -60,6 +61,7 @@ int		ft_atoi(const char *s);
 int		is_number(char *s);
 int		is_dup(char **av);
 int		is_int(char *s);
+int		is_empty(char *s);
 
 int		sa(t_stack **stack_a);
 int		sb(t_stack **stack_b);

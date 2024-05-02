@@ -10,6 +10,7 @@ SRC =	m_src/ft_atoi.c\
 		m_src/swap.c\
 		m_src/utils.c\
 		m_src/utils1.c\
+		m_src/utils2.c\
 		m_src/algo1.c
 
 B_SRC =	b_src/checker.c\
@@ -20,6 +21,7 @@ B_SRC =	b_src/checker.c\
 		b_src/moves1.c\
 		b_src/moves2.c\
 		b_src/utils.c\
+		b_src/utils1.c\
 		b_src/list.c\
 		b_src/ft_atoi.c\
 		b_src/get_moves.c

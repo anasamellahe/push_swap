@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:02:03 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:29:43 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:46:52 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 char	**new_str(char **av)
 {
@@ -22,6 +23,12 @@ char	**new_str(char **av)
 	new = 0;
 	while (av[i] != NULL)
 	{
+		if (*av[i] == 0 || is_empty(av[i]))
+		{
+			if (new)
+				free(new);
+			return (NULL);
+		}
 		new = ft_strjoin(new, av[i]);
 		if (av[i + 1] != NULL)
 			new = ft_strjoin(new, " ");
@@ -85,26 +92,22 @@ char	**ft_free(char **ptr)
 int	main(int ac, char **av)
 {
 	char	**str;
-	int		i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	(void)ac;
 	stack_a = NULL;
 	stack_b = NULL;
-	str = new_str(av);
-	if (check_error(str) == -1)
+	if (ac > 1)
 	{
-		write(2, "Error\n", 6);
-		ft_free(str);
-		return (0);
+		str = new_str(av);
+		if (str == NULL || check_error(str) == -1)
+		{
+			write(2, "Error\n", 6);
+			if (str)
+				ft_free(str);
+			return (0);
+		}
+		set_stack(&stack_a, &stack_b, str);
 	}
-	i = 0;
-	while (str[i])
-		l_add_node(&stack_a, new_node(ft_atoi(str[i++])));
-	if (!is_sorted(stack_a, stack_b))
-		get_algo(&stack_a, &stack_b);
-	ft_free(str);
-	free_node(stack_a);
 	return (0);
 }

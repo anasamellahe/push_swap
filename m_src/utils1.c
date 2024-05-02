@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:02:23 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:02:24 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:37:25 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,18 @@ void	get_algo(t_stack **stack_a, t_stack **stack_b)
 		end = ((15 * (len <= 100)) + (35 * (len > 100)));
 		algo(stack_a, stack_b, start, end);
 	}
+}
+
+int	is_empty(char *s)
+{
+	int	i;
+	
+	i = 0;
+	while (s && s[i])
+	{
+		if (s[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }

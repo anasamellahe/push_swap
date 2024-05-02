@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:03:16 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:37:07 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:57:47 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ char	**new_str(char **av)
 	new = 0;
 	while (av[i] != NULL)
 	{
+		if (*av[i] == 0 || is_empty(av[i]))
+		{
+			if (new)
+				free(new);
+			return (NULL);
+		}
 		new = ft_strjoin(new, av[i]);
 		if (av[i + 1] != NULL)
 			new = ft_strjoin(new, " ");
@@ -99,10 +105,11 @@ int	main(int ac, char *av[])
 	if (ac < 2)
 		return (0);
 	str = new_str(av);
-	if (check_error(str) == -1)
+	if (str == NULL || check_error(str) == -1)
 	{
 		write(2, "Error\n", 6);
-		ft_free(str);
+		if (str)
+			ft_free(str);
 		return (0);
 	}
 	if (set_stack(&stack_a, &stack_b, str))
@@ -111,9 +118,6 @@ int	main(int ac, char *av[])
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	if (stack_a)
-		free_node(stack_a);
-	if (stack_b)
-		free_node(stack_b);
+	free_stacks(stack_a, stack_b);
 	return (0);
 }

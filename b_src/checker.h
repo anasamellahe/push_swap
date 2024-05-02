@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:11:00 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:27:17 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:57:10 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_stack	*new_node(int data);
 
 void	l_add_node(t_stack **head, t_stack *node_to_add);
 void	f_add_node(t_stack **head, t_stack *node_to_add);
+void	free_stacks(t_stack *stack_a, t_stack *stack_b);
 void	free_node(t_stack *stack_free);
 
 char	**new_str(char **av);
@@ -42,6 +43,7 @@ int		ft_atoi(const char *str);
 int		check_error(char **str);
 int		is_number(char *s);
 int		is_dup(char **str);
+int		is_empty(char *s);
 int		is_int(char *s);
 
 int		rrr(t_stack **stack_a, t_stack **stack_b);
