@@ -96,7 +96,7 @@ int	main(int ac, char *av[])
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac  < 2)
+	if (ac < 2)
 		return (0);
 	str = new_str(av);
 	if (check_error(str) == -1)
