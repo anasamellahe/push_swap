@@ -22,19 +22,6 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-int	ft_strcmp(char *s, char *s1)
-{
-	int	i;
-
-	i = 0;
-	while (s && s1 && s[i] == s1[i] && s[i] && s1[i])
-	{
-		printf("%c %c\n", s[i], s1[i]);
-		i++;
-	}
-	return (s[i] - s1[i]);
-}
-
 int	is_number(char *s)
 {
 	int	i;
@@ -91,11 +78,27 @@ int	is_dup(char **str)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (!ft_strcmp(str[i], str[j]))
+			if (ft_atoi(str[i]) == ft_atoi(str[j]))
 				return (-1);
 			j++;
 		}
 		i++;
 	}
 	return (0);
+}
+
+void	set_stack(t_stack **stack_a, t_stack **stack_b, char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		l_add_node(stack_a, new_node(ft_atoi(str[i++])));
+	if (!is_sorted(*stack_a, *stack_b))
+		get_algo(stack_a, stack_b);
+	if (*stack_a)
+		free_node(*stack_a);
+	if (*stack_b)
+		free_node(*stack_b);
+	ft_free(str);
 }

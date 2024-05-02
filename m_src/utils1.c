@@ -107,7 +107,7 @@ void	get_algo(t_stack **stack_a, t_stack **stack_b)
 int	is_empty(char *s)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s && s[i])
 	{

@@ -29,7 +29,7 @@ int	is_number(char *s)
 	i = 0;
 	i += (s[i] == '-' || s[i] == '+');
 	if (s[i] == 0)
-		return(-1);
+		return (-1);
 	while (s[i])
 	{
 		if (!(s[i] >= '0' && s[i] <= '9'))
@@ -78,7 +78,7 @@ int	is_dup(char **str)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (!ft_strcmp(str[i], str[j]))
+			if (ft_atoi(str[i]) == ft_atoi(str[j]))
 				return (-1);
 			j++;
 		}

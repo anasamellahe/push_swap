@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 char	**new_str(char **av)
 {
 	int		i;

@@ -10,7 +10,6 @@ SRC =	m_src/ft_atoi.c\
 		m_src/swap.c\
 		m_src/utils.c\
 		m_src/utils1.c\
-		m_src/utils2.c\
 		m_src/algo1.c
 
 B_SRC =	b_src/checker.c\
