@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:11:00 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/02 12:57:10 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/04 20:17:03 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int		get_moves(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack_a, t_stack *stack_b);
 int		ft_strcmp(char *s, char *s1);
 int		link_len(t_stack *stack_t);
-int		ft_atoi(const char *str);
 int		check_error(char **str);
 int		is_number(char *s);
 int		is_dup(char **str);
@@ -58,4 +57,5 @@ int		rb(t_stack **stack_b);
 int		rra(t_stack **stack_a);
 int		rrb(t_stack **stack_b);
 
+long	ft_atoi(const char *str);
 #endif

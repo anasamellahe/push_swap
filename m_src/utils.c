@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:02:16 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/02 20:59:29 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/04 20:14:54 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,11 @@ int	is_number(char *s)
 
 int	is_int(char *s)
 {
-	int		len;
-	int		i;
-	int		sign;
-	char	*n;
+	long	n;
 
-	i = 0;
-	sign = s[i] == '-';
-	n = (char *)(((long int)"2147483647") * !sign
-			+ ((long int)"-2147483648") * sign);
-	len = ft_strlen(s);
-	if (len >= 10)
-	{
-		while (s[i])
-		{
-			if (len > (10 + sign) || n[i] < s[i])
-				return (-1);
-			i++;
-		}
-	}
+	n = ft_atoi(s);
+	if (n > (long)(2147483647) || n < (long)(-2147483648))
+		return (-1);
 	return (0);
 }
 
@@ -93,7 +79,7 @@ void	set_stack(t_stack **stack_a, t_stack **stack_b, char **str)
 
 	i = 0;
 	while (str[i])
-		l_add_node(stack_a, new_node(ft_atoi(str[i++])));
+		l_add_node(stack_a, new_node((int)(ft_atoi(str[i++]))));
 	if (!is_sorted(*stack_a, *stack_b))
 		get_algo(stack_a, stack_b);
 	if (*stack_a)

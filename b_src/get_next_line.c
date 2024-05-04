@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:11:30 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:14:12 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/04 23:12:09 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,10 @@ char	*get_next_line(int fd)
 		return (0);
 	line = ft_get_line(s);
 	s = ft_new_str(s);
+	if (s && !s[0])
+	{
+		free(s);
+		s = NULL;
+	}
 	return (line);
 }

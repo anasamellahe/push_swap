@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_moves.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:11:13 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:13:46 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/04 23:09:43 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,17 @@ int	get_moves(t_stack **stack_a, t_stack **stack_b)
 	while (s)
 	{
 		if (moves_check(s, stack_a, stack_b))
+		{
+			if (s)
+				free(s);
 			return (-1);
+		}
+		if (s)
+			free(s);
 		s = get_next_line(0);
 	}
+	if (s)
+		free(s);
 	return (0);
 }
 

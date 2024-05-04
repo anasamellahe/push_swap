@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:12:00 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/02 18:08:53 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/04 20:16:41 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,11 @@ int	is_number(char *s)
 
 int	is_int(char *s)
 {
-	int		len;
-	int		i;
-	int		sign;
-	char	*n;
+	long	n;
 
-	i = 0;
-	sign = s[i] == '-';
-	n = (char *)(((long int)"2147483647") * !sign
-			+ ((long int)"-2147483648") * sign);
-	len = ft_strlen(s);
-	if (len >= 10)
-	{
-		while (s[i])
-		{
-			if (len > (10 + sign) || n[i] < s[i])
-				return (-1);
-			i++;
-		}
-	}
+	n = ft_atoi(s);
+	if (n > (long)(2147483647) || n < (long)(-2147483648))
+		return (-1);
 	return (0);
 }
 

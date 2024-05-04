@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamella <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:01:54 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/01 23:01:55 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/04 20:42:52 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	ra(t_stack **stack_a)
 {
 	t_stack	*tmp_stack_a;
 
-	if ((*stack_a) == NULL || (*stack_a)->next == NULL)
+	if ((*stack_a) == NULL)
+		return (0);
+	if ((*stack_a)->next == NULL)
 		return (0);
 	tmp_stack_a = (*stack_a);
 	(*stack_a) = (*stack_a)->next;
@@ -30,7 +32,9 @@ int	rb(t_stack **stack_b)
 {
 	t_stack	*tmp_stack_b;
 
-	if ((*stack_b) == NULL || (*stack_b)->next == NULL)
+	if ((*stack_b) == NULL)
+		return (0);
+	if ((*stack_b)->next == NULL)
 		return (0);
 	tmp_stack_b = (*stack_b);
 	(*stack_b) = (*stack_b)->next;
@@ -53,6 +57,10 @@ int	rra(t_stack **stack_a)
 	t_stack	*tmp_stack_a;
 	t_stack	*tmp;
 
+	if (*stack_a == NULL)
+		return (0);
+	if ((*stack_a)->next == NULL)
+		return (0);
 	tmp_stack_a = (*stack_a);
 	while (tmp_stack_a->next->next != NULL)
 		tmp_stack_a = tmp_stack_a->next;
@@ -69,6 +77,10 @@ int	rrb(t_stack **stack_b)
 	t_stack	*tmp_stack_b;
 	t_stack	*tmp;
 
+	if (*stack_b == NULL)
+		return (0);
+	if ((*stack_b)->next == NULL)
+		return (0);
 	tmp_stack_b = (*stack_b);
 	while (tmp_stack_b->next->next != NULL)
 		tmp_stack_b = tmp_stack_b->next;

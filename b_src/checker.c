@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:03:16 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/02 12:57:47 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/04 22:40:50 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	set_stack(t_stack **stack_a, t_stack **stack_b, char **str)
 
 	i = 0;
 	while (str[i])
-		l_add_node(stack_a, new_node(ft_atoi(str[i++])));
+		l_add_node(stack_a, new_node((int)ft_atoi(str[i++])));
 	ft_free(str);
 	if (get_moves(stack_a, stack_b))
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		if (*stack_a)
 			free_node(*stack_a);
 		if (*stack_b)
@@ -63,6 +63,8 @@ int	check_error(char **str)
 	int	i;
 
 	i = 0;
+	if (str == NULL)
+		return (-1);
 	if (is_dup(str) != 0)
 		return (-1);
 	while (str[i] != NULL)
